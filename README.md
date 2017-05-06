@@ -1,8 +1,10 @@
 This Readme is for the TALA ATM program.
 
-How to set up and run the ATM program on Windows 10 using IntelliJ IDE:
+How to set up and run the ATM program on Windows 10 using IntelliJ. If you have an IDE that is currently installed and working, 
+then please proceed to CLONE REPOSITORY FROM GITHUB:
 
 ##########################     SETUP INTELLIJ AND JAVA PATH     ##########################
+
 1. I have created this ATM program using the IntelliJ IDE on a windows computer, 
 and thus I will explain the set up with relation to this.
 2. If you have IntelliJ installed and running, then you can skip the step 3 through 7, otherwise
@@ -19,18 +21,24 @@ the instructions the installer provides.
 
 		b) Click Advanced system settings, then Environment Variables.
 		
-		c) Add a New System Variable: Variable Name: PATH and Variable Value: C:\Program Files\Java\jdk1.8.0_121
+		c) Add a New System Variable: Variable Name: PATH and Variable Value: C:\Program Files\Java\jdk1.8.0_121. Save.
 		
 		Exit the control panel.
 
-7) Add the JDK path to IntelliJ - Click on Filr -> Project Structure -> Under the 'Project SDK' add the path to the JDK. In
-my case it is: 'C:\Program Files\Java\jdk1.8.0_121', click on Apply -> OK.
+7) Add the JDK path to your IDE. Since I used IntelliJ: - Click on File -> Project Structure -> Under the 'Project SDK' add the path to the JDK. 
+In my case it is: 'C:\Program Files\Java\jdk1.8.0_121', click on Apply -> OK.
+
 
 
 ##################    CLONE REPOSITORY FROM GITHUB     ##########################
 
 1. Assuming that you have access to GitHub, clone the repo at:
-2. Open the project TalaATMQATest from the cloned repo, using IntelliJ.
+
 
 
 ##################    RUNNING THE ATM PROGRAM     ##########################
+
+1. Create a new project in IntelliJ.
+2. Copy the contents of the cloned src folder into the src folder of your newly created project. Save the project.
+3. To execute the ATM program run the main function ATMMachine.main(), which will display 
+the menu options allowing you to execute the ATM functionality.

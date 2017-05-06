@@ -51,6 +51,7 @@ public class ATMMachine {
         }
     }
 
+
     /*#################################################################
     Function Name:           menuOptions
     Function Arguments:      N/A
@@ -68,6 +69,7 @@ public class ATMMachine {
         System.out.println("######   CURRENT BALANCE: " + balance + " KES   ######");
         return scanInteger();
     }
+
 
     /*#################################################################
     Function Name:           scanInteger
@@ -92,6 +94,7 @@ public class ATMMachine {
         } while (option < 0 || option > 5);
         return option;
     }
+
 
     /*#################################################################
    Function Name:           scanDouble
@@ -141,12 +144,12 @@ public class ATMMachine {
             System.out.println("CURRENT BALANCE: " + balance + " KES");
             System.out.println("MAXIMUM DEPOSIT PER TRANSACTION: 40,000 KES. \n How much do you want to deposit?");
             Double depositAmount = scanDouble();
-            if (depositAmount > 40000) {
+            if (depositAmount > 40000) { //Error msg if deposit amount is > 40,000
                     System.out.println("Maximum deposit per transaction: 40,000 KES");
-            } else if (collectiveDepositAmount + depositAmount > MAXDEPOSITPERDAY) {
+            } else if (collectiveDepositAmount + depositAmount > MAXDEPOSITPERDAY) { //Error message if maxdeposit per day has reached
                 System.out.println("Will pass maximum deposit limit of 150,000 KES per day. Can only deposit: " +
                         (MAXDEPOSITPERDAY - collectiveDepositAmount));
-            } else if (depositAmount <= 40000 && (collectiveDepositAmount <= MAXDEPOSITPERDAY)) {
+            } else if (depositAmount <= 40000 && (collectiveDepositAmount <= MAXDEPOSITPERDAY)) { //deposit if all conditions satisfy
                 balance += depositAmount;
                 collectiveDepositAmount += depositAmount;
                 depositTransaction += 1;
@@ -170,15 +173,15 @@ public class ATMMachine {
             System.out.println("CURRENT BALANCE: " + balance  + " KES");
             System.out.println("MAXIMUM WITHDRAW PER TRANSACTION: 20000 KES.\n How much do you want to withdraw?");
             Double withDrawAmount = scanDouble();
-            if (balance < withDrawAmount) {
+            if (balance < withDrawAmount) { //Error msg if withdraw amount is greater than balance
                 System.out.println("Insufficient Balance.");
             } else {
-                if (collectiveWithdrawAmount + withDrawAmount > MAXWITHDRAWPERDAY) {
+                if (collectiveWithdrawAmount + withDrawAmount > MAXWITHDRAWPERDAY) { //Error msg if max withdraw per day has reached
                     System.out.println("Will pass maximum withdraw limit of 50,000 KES per day. Can only withdraw: " +
                             (MAXWITHDRAWPERDAY - collectiveWithdrawAmount) + " KES.");
-                } else if (withDrawAmount > 20000) {
+                } else if (withDrawAmount > 20000) { //Error msg if withdrawing more than max withdrawal limit per transaction
                     System.out.println("Maximum withdraw amount per transaction: 20,000 KES");
-                } else if (withDrawAmount <= 20000 && withDrawAmount <= balance) {
+                } else if (withDrawAmount <= 20000 && withDrawAmount <= balance) { //withdraw if all conditions satisfy
                     balance -= withDrawAmount;
                     withDrawTransaction += 1;
                     collectiveWithdrawAmount += withDrawAmount;
@@ -186,7 +189,7 @@ public class ATMMachine {
                 }
             }
         } else {
-            System.out.println("Maximum withdraw transaction reached.");
+            System.out.println("Maximum frequency of withdraw transactions reached for today. Try again tomorrow.");
         }
     }
 
